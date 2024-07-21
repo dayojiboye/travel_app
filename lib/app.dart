@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/utils/theme.dart';
+import 'package:travel_app/views/search.dart';
 import 'package:travel_app/widgets/bottom_nav_bar_item.dart';
 
 class MyApp extends StatefulWidget {
@@ -37,9 +38,7 @@ class _MyAppState extends State<MyApp> {
           child: Text("Bookings Screen"),
         );
       default:
-        return const Center(
-          child: Text("Search Screen"),
-        );
+        return const SearchScreen();
     }
   }
 
