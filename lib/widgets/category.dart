@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:travel_app/utils/extensions.dart';
 import 'package:travel_app/utils/margin.dart';
 import 'package:travel_app/utils/theme.dart';
 
@@ -47,7 +46,7 @@ class Category extends StatelessWidget {
           ),
           const YMargin(16),
           Text(
-            label.toCapitalized(),
+            label,
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,

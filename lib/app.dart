@@ -63,7 +63,6 @@ class _MyAppState extends State<MyApp> {
           items: [
             BottomNavigationBarItem(
               icon: BottomNavBarItem(
-                size: 18,
                 isActive: currentRouteIndex == 0,
                 icon: "assets/icons/search.svg",
               ),
@@ -71,7 +70,6 @@ class _MyAppState extends State<MyApp> {
             ),
             BottomNavigationBarItem(
               icon: BottomNavBarItem(
-                // size: 24,
                 isActive: currentRouteIndex == 1,
                 icon: "assets/icons/flight.svg",
               ),

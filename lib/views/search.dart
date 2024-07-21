@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/constants/categories.dart';
+import 'package:travel_app/constants/hotels.dart';
 import 'package:travel_app/utils/margin.dart';
 import 'package:travel_app/utils/theme.dart';
 import 'package:travel_app/widgets/category.dart';
+import 'package:travel_app/widgets/custom_button.dart';
+import 'package:travel_app/widgets/hotel_card.dart';
 import 'package:travel_app/widgets/search_input.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -14,7 +17,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
-  String selectedCategory = "";
+  String selectedCategory = "Beach";
 
   @override
   void dispose() {
@@ -32,16 +35,21 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kWhite,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: const CustomButton(
+        label: "Map",
+        rightIcon: "assets/icons/map.svg",
+      ),
       body: SafeArea(
         bottom: false,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
+        child: Container(
+          padding: const EdgeInsets.only(
+            top: 20,
           ),
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -70,30 +78,58 @@ class _SearchScreenState extends State<SearchScreen> {
                   ],
                 ),
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                child: SizedBox(
-                  width: screenWidth(context),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: categories
-                        .map(
-                          (category) => Category(
-                            iconSize: category.iconSize,
-                            label: category.label,
-                            icon: category.icon,
-                            currentCategory: selectedCategory,
-                            onTap: (label) => setCategory(label),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                        ),
+                        child: SizedBox(
+                          width: screenWidth(context),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: categories
+                                .map(
+                                  (category) => Category(
+                                    iconSize: category.iconSize,
+                                    label: category.label,
+                                    icon: category.icon,
+                                    currentCategory: selectedCategory,
+                                    onTap: (label) => setCategory(label),
+                                  ),
+                                )
+                                .toList(),
                           ),
-                        )
-                        .toList(),
+                        ),
+                      ),
+                      const YMargin(20),
+                      ListView.separated(
+                        separatorBuilder: (context, index) {
+                          return const YMargin(24);
+                        },
+                        padding: const EdgeInsets.only(
+                          left: 16,
+                          right: 16,
+                          bottom: 50,
+                        ),
+                        itemBuilder: (context, index) {
+                          return HotelCard(
+                            name: hotels[index].name,
+                            images: hotels[index].images,
+                          );
+                        },
+                        itemCount: 2,
+                        primary: false,
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                      )
+                    ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

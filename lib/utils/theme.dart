@@ -7,6 +7,8 @@ const Color kWhite = Color(0XFFFFFFFF);
 const Color kIconBg = Color(0XFFFAFAFA);
 const Color kSecondary = Color(0XFF98989A);
 const Color kInputBg = Color(0XFFFBF6FA);
+const Color kRed = Color(0XFFFE7D8A);
+const Color kDeepGreen = Color(0XFF57FF9A);
 
 themeData(context) => ThemeData(
       fontFamily: GoogleFonts.inter().fontFamily,

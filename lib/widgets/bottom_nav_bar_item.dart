@@ -7,12 +7,10 @@ class BottomNavBarItem extends StatelessWidget {
     super.key,
     required this.isActive,
     required this.icon,
-    this.size = 20,
   });
 
   final bool isActive;
   final String icon;
-  final double? size;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +19,10 @@ class BottomNavBarItem extends StatelessWidget {
       child: SvgPicture.asset(
         icon,
         alignment: Alignment.center,
-        height: size,
-        width: size,
-        colorFilter: const ColorFilter.mode(
-          kPrimary,
+        height: 24,
+        width: 24,
+        colorFilter: ColorFilter.mode(
+          isActive ? kPrimary : kSecondary,
           BlendMode.srcIn,
         ),
       ),
