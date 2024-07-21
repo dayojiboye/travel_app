@@ -41,52 +41,66 @@ class HotelCard extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const XMargin(3),
+                    const VerticalDivider(
+                      color: kGreen,
+                      width: 2,
+                    ),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Stack(
+                        alignment: Alignment.centerLeft,
+                        clipBehavior: Clip.none,
                         children: [
-                          Expanded(
-                            child: Image.asset(
-                              images[1],
-                              fit: BoxFit.cover,
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Image.asset(
+                                  images[1],
+                                  // width: screenWidth(context),
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const Divider(
+                                color: kGreen,
+                                height: 2,
+                              ),
+                              Expanded(
+                                child: Image.asset(
+                                  images[2],
+                                  // width: screenWidth(context),
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
                           ),
-                          const YMargin(3),
-                          Expanded(
-                            child: Image.asset(
-                              images[2],
-                              fit: BoxFit.cover,
+                          Positioned(
+                            left: -18,
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: const BoxDecoration(
+                                color: kWhite,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: SvgPicture.asset(
+                                  "assets/icons/red-eye.svg",
+                                  height: 20,
+                                  width: 20,
+                                  colorFilter: const ColorFilter.mode(
+                                    kRed,
+                                    BlendMode.srcIn,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
                   ],
-                ),
-              ),
-              Positioned.fill(
-                child: Align(
-                  alignment: const Alignment(0.37, 0),
-                  child: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: const BoxDecoration(
-                      color: kWhite,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset(
-                        "assets/icons/red-eye.svg",
-                        height: 20,
-                        width: 20,
-                        colorFilter: const ColorFilter.mode(
-                          kRed,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
-                  ),
                 ),
               ),
               Positioned(

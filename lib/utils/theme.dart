@@ -21,7 +21,4 @@ themeData(context) => ThemeData(
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
       focusColor: Colors.transparent,
-      // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      //   selectedItemColor: kLightBlue,
-      // ),
     );
