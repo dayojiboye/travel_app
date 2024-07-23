@@ -81,28 +81,29 @@ class _SearchScreenState extends State<SearchScreen> {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                        ),
-                        child: SizedBox(
-                          width: screenWidth(context),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: categories
-                                .map(
-                                  (category) => Category(
-                                    iconSize: category.iconSize,
-                                    label: category.label,
-                                    icon: category.icon,
-                                    currentCategory: selectedCategory,
-                                    onTap: (label) => setCategory(label),
-                                  ),
-                                )
-                                .toList(),
+                      SizedBox(
+                        height: 115,
+                        child: ListView.separated(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
                           ),
+                          itemBuilder: (context, index) {
+                            return Category(
+                              iconSize: categories[index].iconSize,
+                              label: categories[index].label,
+                              icon: categories[index].icon,
+                              currentCategory: selectedCategory,
+                              onTap: (label) => setCategory(label),
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return const XMargin(28);
+                          },
+                          itemCount: categories.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
                         ),
                       ),
                       const YMargin(20),

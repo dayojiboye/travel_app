@@ -19,28 +19,21 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Widget currentRouteView() {
-    switch (currentRouteIndex) {
-      case 1:
-        return const Center(
-          child: Text("Flights Screen"),
-        );
-      case 2:
-        return const Center(
-          child: Text("Saved Screen"),
-        );
-      case 3:
-        return const Center(
-          child: Text("Explore Screen"),
-        );
-      case 4:
-        return const Center(
-          child: Text("Bookings Screen"),
-        );
-      default:
-        return const SearchScreen();
-    }
-  }
+  final tabScreens = [
+    const SearchScreen(),
+    const Center(
+      child: Text("Flights Screen"),
+    ),
+    const Center(
+      child: Text("Saved Screen"),
+    ),
+    const Center(
+      child: Text("Explore Screen"),
+    ),
+    const Center(
+      child: Text("Bookings Screen"),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       theme: themeData(context),
       home: Scaffold(
         backgroundColor: kWhite,
-        body: currentRouteView(),
+        body: tabScreens[currentRouteIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: kWhite,
