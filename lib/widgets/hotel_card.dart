@@ -25,7 +25,6 @@ class HotelCard extends StatelessWidget {
             builder: (context) {
               return const BookFlightScreen();
             },
-            fullscreenDialog: true,
           ),
         );
       },
