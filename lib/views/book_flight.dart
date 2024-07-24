@@ -7,6 +7,7 @@ import "package:travel_app/widgets/custom_button.dart";
 import "package:travel_app/widgets/destination_card.dart";
 import "package:travel_app/widgets/flight_info_card.dart";
 import "package:travel_app/widgets/heading_text.dart";
+import "package:travel_app/widgets/search_flights.dart";
 
 class BookFlightScreen extends StatefulWidget {
   const BookFlightScreen({super.key});
@@ -137,11 +138,27 @@ class _BookFlightScreenState extends State<BookFlightScreen> {
                   ),
                 ),
                 const YMargin(52),
-                const CustomButton(
+                CustomButton(
                   label: "Search Flights",
                   width: double.infinity,
                   height: 56,
                   leftIcon: "assets/icons/plane-filled.svg",
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return const SearchFlights();
+                      },
+                      backgroundColor: kWhite,
+                      isScrollControlled: true,
+                      clipBehavior: Clip.hardEdge,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(24),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

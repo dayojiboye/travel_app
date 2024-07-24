@@ -13,6 +13,7 @@ class CustomButton extends StatelessWidget {
     this.width = 100,
     this.height = 48,
     this.iconSize = 20,
+    this.onPressed,
   });
 
   final String label;
@@ -22,11 +23,12 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final double? height;
   final double? iconSize;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ButtonStyle(
         backgroundColor: const MaterialStatePropertyAll(kDeepGreen),
         fixedSize: MaterialStatePropertyAll(

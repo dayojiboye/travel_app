@@ -7,22 +7,27 @@ class SearchInput extends StatelessWidget {
     super.key,
     required this.searchController,
     this.suffixIcon,
+    this.hintText = "Search hotel",
+    this.autoFocus = false,
   });
 
   final TextEditingController searchController;
   final String? suffixIcon;
+  final String? hintText;
+  final bool? autoFocus;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: kPrimary,
+      autofocus: autoFocus ?? false,
       style: const TextStyle(
         fontSize: 14,
         color: kPrimary,
       ),
       decoration: InputDecoration(
         fillColor: kInputBg,
-        hintText: "Search hotel",
+        hintText: hintText,
         hintStyle: const TextStyle(
           fontSize: 14,
           color: kSecondary,
@@ -33,7 +38,7 @@ class SearchInput extends StatelessWidget {
           right: 12,
         ),
         prefixIcon: Container(
-          margin: const EdgeInsets.only(left: 8, top: 8, bottom: 8, right: 0),
+          margin: const EdgeInsets.only(left: 8, top: 10, bottom: 10, right: 0),
           child: SvgPicture.asset(
             "assets/icons/search-2.svg",
           ),

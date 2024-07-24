@@ -11,6 +11,7 @@ const Color kRed = Color(0XFFFE7D8A);
 const Color kDeepGreen = Color(0XFF57FF9A);
 const Color kBorder = Color(0XFFDFE1E7);
 const Color kGrey = Color(0xFF454749);
+const Color kDeeperGreen = Color(0XFF0A9945);
 
 themeData(context) => ThemeData(
       fontFamily: GoogleFonts.inter().fontFamily,

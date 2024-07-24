@@ -16,7 +16,7 @@ class HeadingText extends StatelessWidget {
       style: const TextStyle(
         fontWeight: FontWeight.w700,
         color: kPrimary,
-        fontSize: 32,
+        fontSize: 28,
       ),
     );
   }
