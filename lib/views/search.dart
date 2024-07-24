@@ -5,6 +5,7 @@ import 'package:travel_app/utils/margin.dart';
 import 'package:travel_app/utils/theme.dart';
 import 'package:travel_app/widgets/category.dart';
 import 'package:travel_app/widgets/custom_button.dart';
+import 'package:travel_app/widgets/heading_text.dart';
 import 'package:travel_app/widgets/hotel_card.dart';
 import 'package:travel_app/widgets/search_input.dart';
 
@@ -62,14 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                     ),
                     const YMargin(4),
-                    const Text(
-                      "Perfect Stay Finder",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: kPrimary,
-                        fontSize: 32,
-                      ),
-                    ),
+                    const HeadingText(text: "Perfect Stay Finder"),
                     const YMargin(24),
                     SearchInput(
                       searchController: searchController,

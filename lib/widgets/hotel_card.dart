@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_app/utils/margin.dart';
 import 'package:travel_app/utils/theme.dart';
+import 'package:travel_app/views/book_flight.dart';
 
 class HotelCard extends StatelessWidget {
   const HotelCard({
@@ -18,7 +19,16 @@ class HotelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return const BookFlightScreen();
+            },
+            fullscreenDialog: true,
+          ),
+        );
+      },
       child: Column(
         children: [
           Stack(
@@ -42,7 +52,7 @@ class HotelCard extends StatelessWidget {
                       ),
                     ),
                     const VerticalDivider(
-                      color: kGreen,
+                      color: kWhite,
                       width: 2,
                     ),
                     Expanded(
@@ -62,7 +72,7 @@ class HotelCard extends StatelessWidget {
                                 ),
                               ),
                               const Divider(
-                                color: kGreen,
+                                color: kWhite,
                                 height: 2,
                               ),
                               Expanded(

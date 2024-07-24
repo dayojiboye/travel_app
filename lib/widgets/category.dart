@@ -11,6 +11,7 @@ class Category extends StatelessWidget {
     required this.currentCategory,
     required this.onTap,
     this.iconSize,
+    this.activeBgColor = kGreen,
   });
 
   final String label;
@@ -18,6 +19,7 @@ class Category extends StatelessWidget {
   final String currentCategory;
   final Function(String label) onTap;
   final double? iconSize;
+  final Color? activeBgColor;
 
   get isActive {
     return currentCategory == label;
@@ -34,7 +36,7 @@ class Category extends StatelessWidget {
             height: 80,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: isActive ? kGreen : kIconBg,
+              color: isActive ? activeBgColor : kIconBg,
             ),
             child: Center(
               child: SvgPicture.asset(
